@@ -1,0 +1,20 @@
+def shellSort(arr):
+    n=len(arr)
+    gap=n//2#int(n/2)
+    ksayisi,ysayisi=0,0 #karşılaştırma sayısı,yer değiştirme sayısı
+    while(gap>0):
+        for i in range(gap,n):
+            ksayisi+=1
+            temp=arr[i]
+            j=i
+            while(j>=gap and arr[j-gap]>temp):
+                ksayisi+=1
+                ysayisi+=1
+                arr[j]=arr[j-gap]
+                j-=gap
+            arr[j]=temp
+        gap//=2
+    return arr,ksayisi,ysayisi
+
+dizi=[12,34,54,2,3]
+print(shellSort(dizi))
